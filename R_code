@@ -1,0 +1,12 @@
+# title: "R homework"
+# author: "Toth-Kiraly Istvan"
+# date: "June 12, 2018"
+# output: html_document
+
+# Necessary packages 
+library(haven)      # for data importation
+library(tidyverse)  # for data manipulation
+library(MVN)        # for testing normality
+library(MBESS)      # for calculating model-based omega composite reliability
+library(psych)      # for calculating Cronbach's alpha and correlations
+library(lavaan)     # for structural equation modeling
