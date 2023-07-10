@@ -10,3 +10,19 @@ library(MVN)        # for testing normality
 library(MBESS)      # for calculating model-based omega composite reliability
 library(psych)      # for calculating Cronbach's alpha and correlations
 library(lavaan)     # for structural equation modeling
+
+# Data importation
+demi <- read_spss("data)
+
+# Variable calculation
+variables <- dehumi %>%
+  mutate(east_avg = (syr + turk + lib)/3,
+         west_avg = (ger + dane + usa)/3,
+         hung_avg = (hun + hunw + hune)/3,
+         dehu_avg = (east_avg + west_avg + hung_avg)/3,
+         mall_avg = (mall1 + mall2 + mall3 + mall4)/4,
+         raci_avg = (rac1 + rac2 + rac3 + rac4 + rac5 + rac6 + rac7)/7,
+         xeno_avg = (xeno1 + xeno2 + xeno3 + xeno4 + xeno5)/5)
+
+onlygood <- variables %>%
+  select(dehu_avg:xeno_avg)
