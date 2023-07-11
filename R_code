@@ -24,5 +24,13 @@ variables <- dehumi %>%
          raci_avg = (rac1 + rac2 + rac3 + rac4 + rac5 + rac6 + rac7)/7,
          xeno_avg = (xeno1 + xeno2 + xeno3 + xeno4 + xeno5)/5)
 
+# Assessment of univariate and multivariate normality with skewness/kurtosis & Mardia's test
 onlygood <- variables %>%
   select(dehu_avg:xeno_avg)
+
+mvn(onlygood)
+
+# Correlation between the variables
+
+corr.test(onlygood, method = "spearman")  %>%
+print(short = FALSE)
