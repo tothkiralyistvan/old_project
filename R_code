@@ -42,3 +42,8 @@ dehuman <- '
   hung =~ hun + hunw + hune '
 fit_dehum <- cfa(dehuman, data = dehumi, estimator = 'MLR')
 summary(fit_dehum, fit.measures = TRUE, standardized = TRUE)
+
+# CFA of malleability
+malleab <- 'mall =~ mall1 + mall2 + mall3 + mall4 '
+fit_malleab <- cfa(malleab, data = dehumi, estimator = 'MLR')
+summary(fit_malleab, fit.measures = TRUE, standardized = TRUE)
