@@ -31,6 +31,14 @@ onlygood <- variables %>%
 mvn(onlygood)
 
 # Correlation between the variables
-
 corr.test(onlygood, method = "spearman")  %>%
 print(short = FALSE)
+
+# CFA of the new measure
+dehuman <- '
+  tend =~ east + west + hung
+  east =~ syr + turk + lib
+  west =~ ger + dane + usa
+  hung =~ hun + hunw + hune '
+fit_dehum <- cfa(dehuman, data = dehumi, estimator = 'MLR')
+summary(fit_dehum, fit.measures = TRUE, standardized = TRUE)
